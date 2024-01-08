@@ -7,10 +7,13 @@ const todoList = document.querySelector(".todo-list");
 
 // Event Listeners
 // Event listeners are used to respond to certain events, such as user interactions,
-// by executing a specified function. In this case, when the 'click' event is fired on
-// the 'todoButton' element, the 'addTodo' function is executed.
+// by executing a specified function.
+
+// When the 'click' event is fired on the 'todoButton' element, the 'addTodo' function is executed.
 todoButton.addEventListener("click", addTodo);
 
+// When the 'click' event is fired on the 'todoList' element, the 'delectCheck' function is executed.
+todoList.addEventListener("click", deleteCheck);
 // Functions
 
 function addTodo(event) {
@@ -45,4 +48,31 @@ function addTodo(event) {
 
   // Clear Todo Input Value
   todoInput.value = "";
+}
+
+function deleteCheck(e) {
+  // Using .target can allow you to see what inputs are targeted when clicked.
+  // console.log(e.target);
+
+  const item = e.target;
+
+  // Delete toDo
+  if (item.classList[0] === "trash-btn") {
+    const todo = item.parentElement;
+
+    // Animation
+    todo.classList.add("fall");
+
+    // Use addEventListener so that when the user clicks on delete, the animation/transition
+    // occurs first before deleted the todo div.
+    todo.addEventListener("transitionend", function () {
+      todo.remove();
+    });
+  }
+
+  // Check mark
+  if (item.classList[0] === "completed-btn") {
+    const todo = item.parentElement;
+    todo.classList.toggle("completed");
+  }
 }

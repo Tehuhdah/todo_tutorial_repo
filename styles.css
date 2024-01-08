@@ -1,13 +1,14 @@
+/* First set of CSS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
   background-image: linear-gradient(120deg, #e1b932, #ee6f4c);
   color: white;
-  font-family: "Poppins", sans-serif;
   min-height: 100vh;
 }
 
@@ -43,4 +44,49 @@ form button {
 form button:hover {
   color: white;
   background: #d88771;
+}
+
+/* Second set of CSS */
+.todo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+.todo {
+  margin: 0.5rem;
+  background: white;
+  color: black;
+  font-size: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo li {
+  flex: 1;
+}
+
+.trash-btn,
+.completed-btn {
+  background: #ff6f47;
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.completed-btn {
+  background: black;
+}
+
+.todo-item {
+  padding: 0rem 0.5rem;
+  /* text-indent: 10px; */
 }
